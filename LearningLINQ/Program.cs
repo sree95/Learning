@@ -50,14 +50,27 @@ namespace LearningLINQ
                 new Employee() {ID = 106,Name = "SixEmp",HireDate = new DateTime(2010,1,15)}
             };
 
-            IEnumerable<Employee> emplist = from e in emp
-                where e.HireDate.Year >= 2005
-                orderby e.ID descending
-                select e;
+            //IEnumerable<Employee> emplist = from e in emp
+            //    where e.HireDate.Year >= 2005
+            //    orderby e.ID descending
+            //    select e;
 
-            foreach (var VARIABLE in emplist)
+            IEnumerable<Employee> emp1 = emp.Where(date => date.HireDate.Year >= 2005).OrderBy(order => order.ID);
+
+
+            IEnumerable<int> empLength = from e in emp
+                                         where e.HireDate.Year <= 2005
+                                         orderby e.Name
+                                         select e.Name.Length;
+
+            foreach (var VARIABLE in emp1)
             {
                 Console.WriteLine("ID:" + VARIABLE.ID  + " Name: "+ VARIABLE.Name + " HireDate:" + VARIABLE.HireDate);
+            }
+
+            foreach (var item in empLength)
+            {
+                Console.WriteLine(item);
             }
 
         }
