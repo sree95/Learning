@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LearningLINQ
 {
@@ -21,8 +23,74 @@ namespace LearningLINQ
 
             //GettingSystemProcess();
 
-            QueryTypes();
+            //QueryTypes();
+
+            //XmlGenerationFormXelement();       
+
+            //QueryXml();
+
+            QuerySql();
         }
+
+        private static void QuerySql()
+        {
+            MovieReviewsDataContext context = new MovieReviewsDataContext();
+
+            IEnumerable<Movie> movies = from dc in context.Movies
+                where dc.ReleaseDate.Year >= 2008
+                orderby dc.Reviews.Average(x => x.Rating) descending
+                select dc;
+
+            foreach (Movie m in movies)
+            {
+                Console.WriteLine(m.Title);
+            }
+
+        }
+
+        private static void XmlGenerationFormXelement()
+        {
+            XElement element = new XElement("Instructors",
+                new XElement("instructor", "Aron"),
+                new XElement("instructor", "Finch"),
+                new XElement("instructor", "Fritz"),
+                new XElement("instructor", "Keith"),
+                new XElement("instructor", "Scott")
+                );
+
+            Console.WriteLine(element.ToString());
+        }
+
+        private static void QueryXml()
+        {
+            XDocument document = new XDocument(
+                new XElement("Processes",
+                    from p in Process.GetProcesses()
+                    orderby p.ProcessName ascending
+                    select new XElement("Process",
+                    new XAttribute("Name",p.ProcessName),
+                    new XAttribute("ID",p.Id))));
+
+            // 1st way to get inner elements
+
+            //IEnumerable<int> pIdN = from e in document.Element("Processes").Elements("Process")
+            //                       select (int)e.Attribute("ID");
+
+            // Another way to get inner elements
+
+            IEnumerable<int> pIdN = from e in document.Descendants("Process")
+                where e.Attribute("Name").Value == "devenv"
+                orderby (int)e.Attribute("ID") ascending
+                select (int)e.Attribute("ID");
+
+            foreach (int id in pIdN)
+            {
+                Console.WriteLine(id);
+            }
+
+        }
+
+
 
 
         //List of all publi types in the assembly that we are in
