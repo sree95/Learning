@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employee.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="MovieReviews.cs">
       <DependentUpon>MovieReviews.dbml</DependentUpon>
     </Compile>

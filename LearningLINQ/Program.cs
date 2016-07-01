@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -15,6 +16,7 @@ namespace LearningLINQ
     {
         static void Main(string[] args)
         {
+            #region BasicLinqOperations
             //ListofCars();
 
             //InstructorNames();
@@ -29,7 +31,162 @@ namespace LearningLINQ
 
             //QueryXml();
 
-            QuerySql();
+            //QuerySql();
+
+            #endregion
+
+            #region ExtMethods
+
+            //Console.WriteLine(ExtensionMethods.ToDouble("20.53"));
+
+            //string str = "19.83";
+            //Console.WriteLine(str.ToDoubleExt());
+
+            //Console.WriteLine(ExtensionMethods.IsZipCodeValid(str));
+
+            //Console.WriteLine(str.IsZipCodeValidExt());
+
+            //PickCityStartsWithLetterL();
+
+            #endregion
+
+            #region LambdaLearning
+
+            Employee[] empArray = new Employee[]
+            {
+                new Employee {Name ="Scott" , ID = 101 },
+                new Employee {Name ="Jira" , ID = 102 },
+                new Employee {Name ="Lynch" , ID = 101 }
+            };
+
+            Employee scottE = Array.Find(empArray, FindScottPredicate);
+            //Console.WriteLine(scottE.ID);
+
+            Employee scottDel = Array.Find(empArray, e => e.Name.Equals("Scott"));
+
+            Console.WriteLine(empArray.Where(e => e.Name == "Scott"));
+
+            //Couple of ways to call
+
+            //Comprehension Query syntax
+
+            IEnumerable<Employee> empList =
+                from e in empArray
+                where e.Name == "Scott"
+                orderby e.ID ascending
+                select e;
+
+            // Writing in Extension methods and Lambda exp
+
+            IEnumerable<Employee> empEList = empArray.Where(e => e.Name == "Scott").OrderBy(o => o.ID).Select(e => e);
+
+            //To pick only one employee
+
+            Employee empOne = empArray.Where(e => e.Name == "Scott").First();
+
+            var employee = new
+            {
+                Name = "Scott",
+                Id = 101
+            };
+
+            Console.WriteLine(employee.Id);
+
+
+            //Console.WriteLine(scottDel.ID);
+
+            #endregion
+
+            //ActionsAndFuncs();
+
+            UseExpressions();
+
+
+        }
+
+        private static void UseExpressions()
+        {
+            Action printanEmptyLine = () => Console.WriteLine("Hello");
+
+            printanEmptyLine();
+
+            Expression<Action<int>> PrintAnInteger = x => Console.WriteLine(x);
+
+            Action<int, int> PrintTwoIntegers = (x, y) => Console.WriteLine($"{x} and \n {y}");
+
+            
+
+            Action<int> Print = PrintAnInteger.Compile();
+
+            Print(2);
+
+            PrintTwoIntegers(5, 6);
+
+            Func<DateTime> dateTime = () => DateTime.Now;
+
+            Console.WriteLine(dateTime());
+
+            Func<int, int> square = (t) => t * t;
+
+            Func<int, int, int> multiply = (x, y) => x * y;
+
+            Console.WriteLine(multiply(10, 15));
+            Console.WriteLine(square(15));
+
+            MovieReviewsDataContext mrdc = new MovieReviewsDataContext();
+            IEnumerable<Movie> movies =  mrdc.Movies;
+
+        }
+
+        private static void ActionsAndFuncs()
+        {
+            Action printanEmptyLine = () => Console.WriteLine("Hello");
+
+            printanEmptyLine();
+
+            Action<int> PrintAnInteger = x => Console.WriteLine(x);
+
+            Action<int, int> PrintTwoIntegers = (x, y) => Console.WriteLine($"{x} and \n {y}");
+
+            PrintAnInteger(2);
+
+            PrintTwoIntegers(5, 6);
+
+            Func<DateTime> dateTime = () => DateTime.Now;
+
+            Console.WriteLine(dateTime());
+
+            Func < int,int> square = t => t * t;
+
+            Func<int, int, int> multiply = (x, y) => x * y;
+
+            Console.WriteLine(multiply(10,15));
+            Console.WriteLine(square(15));
+        }
+
+        static bool FindScottPredicate(Employee e)
+        {
+            return e.Name.Equals("Scott");
+        }
+        
+
+        private static void PickCityStartsWithLetterL()
+        {
+            string[] str =
+            {
+                "Boston",
+                "London",
+                "Los Angels",
+                "Hyderabad"
+            };
+
+            IEnumerable<string> result = str.Where(e => e.StartsWith("L"));
+
+            foreach (string s in result)
+            {
+                Console.WriteLine(s);
+            }
+
         }
 
         private static void QuerySql()
@@ -149,10 +306,10 @@ namespace LearningLINQ
                 Console.WriteLine(item);
             }
 
-            foreach (var VARIABLE in emp1)
-            {
-                Console.WriteLine("ID:" + VARIABLE.ID + " Name: " + VARIABLE.Name + " HireDate:" + VARIABLE.HireDate);
-            }
+            //foreach (var VARIABLE in emp1)
+            //{
+            //    Console.WriteLine("ID:" + VARIABLE.ID + " Name: " + VARIABLE.Name + " HireDate:" + VARIABLE.HireDate);
+            //}
         }
 
         private static void InstructorNames()
