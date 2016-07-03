@@ -64,7 +64,7 @@ namespace LearningLINQ
 
             Employee scottDel = Array.Find(empArray, e => e.Name.Equals("Scott"));
 
-            Console.WriteLine(empArray.Where(e => e.Name == "Scott"));
+            //Console.WriteLine(empArray.Where(e => e.Name == "Scott"));
 
             //Couple of ways to call
 
@@ -90,7 +90,7 @@ namespace LearningLINQ
                 Id = 101
             };
 
-            Console.WriteLine(employee.Id);
+            //Console.WriteLine(employee.Id);
 
 
             //Console.WriteLine(scottDel.ID);
@@ -99,10 +99,42 @@ namespace LearningLINQ
 
             //ActionsAndFuncs();
 
-            UseExpressions();
+            //UseExpressions();
+
+            UsingImplicitConversionType();
+        }
+
+        private static void UsingImplicitConversionType()
+        {
+            var processList = from p in Process.GetProcesses()
+                              orderby p.Threads.Count descending,
+                                      p.ProcessName ascending
+                              select new
+                                {
+                                    p.ProcessName,
+                                    ThreadCount = p.Threads.Count
+                                };
+
+            var processEList =
+                Process.GetProcesses()
+                    .OrderByDescending(p => p.Threads.Count)
+                    .OrderBy(n => n.ProcessName)
+                    .Select(s => s.ProcessName);
+
+            Console.WriteLine(processList);
+
+            Console.WriteLine(processEList);
+
+            //foreach (var item in processList)
+            //{
+            //    Console.WriteLine(item.ProcessName);
+            //    Console.WriteLine(item.ThreadCount);
+            //}
 
 
         }
+
+        
 
         private static void UseExpressions()
         {
