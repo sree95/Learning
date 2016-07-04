@@ -1,8 +1,20 @@
 ﻿namespace LinqQueries
 {
-    internal class Employee
+    public class Employee
     {
-        public int Id { get; set; }
+        int _id;
+
+        public int Id {
+
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
 
         public string Name { get; set; }
 

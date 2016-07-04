@@ -15,7 +15,16 @@ namespace LinqQueries
 
         private static void SimpleEmployeeQueries()
         {
-            throw new NotImplementedException();
+            var query1 = from e in new EmployeeRepository().GetAll()
+                         where e.DepartmentId < 3 && e.Id < 10
+                         orderby e.DepartmentId descending
+                         orderby e.Name ascending
+                         select e;
+
+            var query2 = new EmployeeRepository().GetAll().Where(d => d.DepartmentId < 3 && d.Id < 10).OrderByDescending(d => d.DepartmentId).OrderBy(n => n.Name);
+
+            Write(query1);
+            Write(query2);
         }
 
         static void Write(IEnumerable<Employee> emplist)
@@ -27,4 +36,6 @@ namespace LinqQueries
             Console.WriteLine();
         }
     }
+
+    
 }

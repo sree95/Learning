@@ -6,15 +6,23 @@ using System.Threading.Tasks;
 
 namespace LinqQueries
 {
-    class EmployeeRepository
+    public class EmployeeRepository
     {
+
+        public IEnumerable<Employee> GetAll()
+        {
+            return empList;
+        }
+        
+
         List<Employee> empList = new List<Employee>
         {
-            new Employee() {DepartmentId = 101,Id = 1001,Name = "SreeOne"},
-            new Employee() {DepartmentId = 102,Id = 1002,Name = "SreeTwo"},
-            new Employee() {DepartmentId = 103,Id = 1003,Name = "SreeThree"},
-            new Employee() {DepartmentId = 104,Id = 1004,Name = "SreeFour"},
-            new Employee() {DepartmentId = 105,Id = 1005,Name = "SreeFive"}
+            new Employee() {DepartmentId = 1,Id = 1,Name = "SreeOne"},
+            new Employee() {DepartmentId = 1,Id = 2,Name = "SreeTwo"},
+            new Employee() {DepartmentId = 1,Id = 3,Name = "SreeThree"},
+            new Employee() {DepartmentId = 1,Id = 4,Name = "SreeFour"},
+            new Employee() {DepartmentId = 2,Id = 5,Name = "SreeFive"},
+            new Employee() {DepartmentId = 2,Id = 6,Name = "SreeSix"}
         };
     }
 }
