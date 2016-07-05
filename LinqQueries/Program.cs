@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EmployeeExtensionsGood;
 
 namespace LinqQueries
 {
@@ -15,15 +16,22 @@ namespace LinqQueries
 
         private static void SimpleEmployeeQueries()
         {
-            var query1 = from e in new EmployeeRepository().GetAll()
-                         where e.DepartmentId < 3 && e.Id < 10
-                         orderby e.DepartmentId descending
-                         orderby e.Name ascending
-                         select e;
+            EmployeeRepository repository = new EmployeeRepository();
 
-            var query2 = new EmployeeRepository().GetAll().Where(d => d.DepartmentId < 3 && d.Id < 10).OrderByDescending(d => d.DepartmentId).OrderBy(n => n.Name);
+            var query1 = (from e in repository.GetAll()
+                          where e.DepartmentId < 3 && e.Id < 10
+                          orderby e.DepartmentId descending
+                          orderby e.Name ascending
+                          select e).ToList();
+
+            var query2 = repository.GetAll().Where(d => d.DepartmentId < 3 && d.Id < 10).OrderByDescending(d => d.DepartmentId).OrderBy(n => n.Name);
 
             Write(query1);
+
+            repository.AddEmployee(new Employee { DepartmentId = 2, Id = 7, Name = "SreeSeven" });
+
+            Write(query1);
+
             Write(query2);
         }
 

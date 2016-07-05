@@ -13,6 +13,11 @@ namespace LinqQueries
         {
             return empList;
         }
+
+        public void AddEmployee(Employee e)
+        {
+            empList.Add(e);
+        }
         
 
         List<Employee> empList = new List<Employee>

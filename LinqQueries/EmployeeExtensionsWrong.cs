@@ -13,7 +13,7 @@ namespace EmployeeExtensionsWrong
         {
             List<Employee> empList = new List<Employee>();
 
-            foreach (Employee e in empList)
+            foreach (Employee e in sequence)
             {
                 if (predicate(e))
                 {
