@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningLINQ", "LearningLIN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqQueries", "LinqQueries\LinqQueries.csproj", "{D31E6789-481C-4690-B7E9-6FED1441743E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp6.0", "CSharp6.0\CSharp6.0.csproj", "{F357D241-DC59-4AA3-8BDF-1F8831077664}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CShatp6.0AndItsTests", "CShatp6.0AndItsTests", "{C087C369-8356-4DF6-AAD1-26E0A3F85A5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp6.0UnitTesting", "CSharp6.0UnitTesting\CSharp6.0UnitTesting.csproj", "{390B4541-C39C-416E-9663-08D3FA71E4DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,20 @@ Global
 		{D31E6789-481C-4690-B7E9-6FED1441743E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D31E6789-481C-4690-B7E9-6FED1441743E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D31E6789-481C-4690-B7E9-6FED1441743E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F357D241-DC59-4AA3-8BDF-1F8831077664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F357D241-DC59-4AA3-8BDF-1F8831077664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F357D241-DC59-4AA3-8BDF-1F8831077664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F357D241-DC59-4AA3-8BDF-1F8831077664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{390B4541-C39C-416E-9663-08D3FA71E4DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{390B4541-C39C-416E-9663-08D3FA71E4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{390B4541-C39C-416E-9663-08D3FA71E4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{390B4541-C39C-416E-9663-08D3FA71E4DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F357D241-DC59-4AA3-8BDF-1F8831077664} = {C087C369-8356-4DF6-AAD1-26E0A3F85A5E}
+		{390B4541-C39C-416E-9663-08D3FA71E4DD} = {C087C369-8356-4DF6-AAD1-26E0A3F85A5E}
 	EndGlobalSection
 EndGlobal
