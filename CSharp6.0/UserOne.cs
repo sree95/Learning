@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharp6._0;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,7 @@ namespace CSharp6._0
 
         // Auto Property Initializers
         public static Guid MyGuid { get; } = Guid.NewGuid();
+        
 
         static void Main(string[] args)
         {
@@ -53,6 +55,13 @@ namespace CSharp6._0
             WriteLine("Hello! I'm Using Using Static directive feature of C# 6.0");            
             
             WriteLine(MyGuid);
+
+            EmployeeO one = new EmployeeO();
+            Console.WriteLine(one.EmployeeFullName);
+
+            Dictionary<int, string> dict = new Dictionary<int, string>();
+
+                       
         }
 
         
