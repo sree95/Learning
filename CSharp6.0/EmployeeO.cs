@@ -25,9 +25,7 @@ namespace CSharp6._0
 
         public string EmployeeLastName { get; set; }
         
-        public string EmployeeFullName { get; set; }
-
-        public string GitTest { get; set; }
+        public string EmployeeFullName { get; set; }       
 
     }
 
