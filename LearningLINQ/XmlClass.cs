@@ -14,7 +14,8 @@ namespace LearningLINQ
             new XElement("instructor", "Finch"),
             new XElement("instructor", "Fritz"),
             new XElement("instructor", "Keith"),
-            new XElement("instructor", "Scott")
+            new XElement("instructor", "Scott"),
+            new XElement("instructor", "Alen")
         );
     }
 }
