@@ -26,7 +26,13 @@ namespace LearningLINQ
         public static bool IsZipCodeValidExt(this string zipcode)
         {
             return zipcode.Length == 5 || zipcode.Length == 9;
-        }       
+        }
+        
+        
+        static public Double SendDouble(this string data)
+        {
+            return double.Parse(data);
+        }        
                   
     }
 }
