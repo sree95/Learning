@@ -18,7 +18,16 @@ namespace LinqQueries
         {
             empList.Add(e);
         }
-        
+
+
+
+        public IEnumerable<Employee> GetDepartmentById(int id)
+        {
+            return
+                from e in empList
+                where e.DepartmentId == id
+                select e;
+        }
 
         List<Employee> empList = new List<Employee>
         {

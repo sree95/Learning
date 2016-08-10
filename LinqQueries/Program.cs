@@ -5,17 +5,83 @@ using System.Text;
 using System.Threading.Tasks;
 using EmployeeExtensionsGood;
 
+
 namespace LinqQueries
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //SimpleEmployeeQueries();
 
-            UseTheLetKeyword();
-            UseTheIntoKeyword();
-            UseGroup();
+            //UseTheLetKeyword();
+            //UseTheIntoKeyword();
+            //UseGroup();
+            //USeJoin();
+            //UseComposition();
+            UseDynamicQuery();
+        }
+
+        static void UseDynamicQuery()
+        {
+            var repository = new EmployeeRepository();
+
+        }
+
+        static void UseComposition()
+        {
+            var repository = new EmployeeRepository();
+
+            var query = from emp in repository.GetDepartmentById(1)
+                        where emp.Name.Length < 6
+                        select emp;            
+        }
+       
+
+        static void USeJoin()
+        {
+            var employeeRepository = new EmployeeRepository();
+
+            var depatmentRepository = new DepartmentRepository();
+
+
+            var query = from emp in employeeRepository.GetAll()
+                        join d in depatmentRepository.GetAll()
+                        on emp.DepartmentId equals d.ID
+                        select new
+                        {
+                            Employee = emp.Name,
+                            Department = d.Name
+                        };
+
+            var query2 = from d in depatmentRepository.GetAll()
+                         join emp in employeeRepository.GetAll()
+                         on d.ID equals emp.DepartmentId
+                            into gid
+                         select new
+                         {
+                             Department = d.Name,
+                             Employee = gid
+                         };
+
+
+
+            foreach (var item in query2)
+            {
+                Console.WriteLine(item.Department);
+                foreach (var item2 in item.Employee)
+                {
+                    Console.WriteLine(item2.Name);
+                }
+            }
+
+
+            //foreach (var item in query)
+            //{
+            //    Console.WriteLine(item.Employee);
+            //    Console.WriteLine(item.Department);
+            //}
+
         }
 
         static void UseGroup()
