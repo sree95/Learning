@@ -62,9 +62,36 @@ namespace Strings
             #endregion
 
 
-            SplitingTheStringBasedonNumber();
+            //SplitingTheStringBasedonNumber();
+
+            VowelCountFromAString();
 
 
+        }
+
+        static void VowelCountFromAString()
+        {
+            string str = "HelothisisAstring";
+
+            int count = 0;
+
+            str = str.ToLower();
+
+            //int vowelCount = str.Count(c => c.Equals('a') || c.Equals('e') || c.Equals('i') || c.Equals('o') || c.Equals('u'));
+
+
+            char[] strArray = str.ToCharArray();
+
+            foreach (var charr in strArray)
+            {
+                if (charr.Equals('a') || charr.Equals('e') || charr.Equals('i') || charr.Equals('o') || charr.Equals('u'))
+                {
+                    count++;
+                }
+            }
+
+            Console.WriteLine(count);
+            //Console.WriteLine(vowelCount);
         }
 
         private static void SplitingTheStringBasedonNumber()

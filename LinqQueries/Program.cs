@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EmployeeExtensionsGood;
-
+using System.Linq.Expressions;
+using System.Linq.Dynamic;
 
 namespace LinqQueries
 {
@@ -19,13 +20,33 @@ namespace LinqQueries
             //UseGroup();
             //USeJoin();
             //UseComposition();
-            UseDynamicQuery();
+            //UseDynamicQuery();
+            //UseDynamicQueryfromSystemLinqDynamicDynamicQueriable();
+        }
+
+        static void UseDynamicQueryfromSystemLinqDynamicDynamicQueriable()
+        {
+            var repository = new EmployeeRepository().GetAll();
+
+            var query = repository.AsQueryable()
+                .OrderBy("Name").Where("DepartmentId = 1");
+
+            Write(query);
         }
 
         static void UseDynamicQuery()
         {
             var repository = new EmployeeRepository();
 
+            string field = "Name";
+
+            var parameter = Expression.Parameter(typeof(Employee), "e");
+
+            var getter = Expression.Property(parameter, typeof(Employee).GetProperty(field));
+
+            var lambda = Expression.Lambda<Func<Employee, string>>(getter, parameter);
+
+            var employee = repository.GetAll().OrderBy(lambda.Compile());
         }
 
         static void UseComposition()
@@ -125,21 +146,7 @@ namespace LinqQueries
             //}
         }
 
-        private static void UseTheIntoKeyword()
-        {
-            var repository = new EmployeeRepository();
-
-            var query = from e in repository.GetAll()
-                        where e.Name.StartsWith("p")
-                        select e
-                            into e1
-                        where e1.Name.Length < 5
-                        select e1;
-
-
-        }
-
-        private static void UseTheLetKeyword()
+        static void UseTheLetKeyword()
         {
             var repository = new EmployeeRepository();
 
@@ -150,7 +157,7 @@ namespace LinqQueries
                 select lName;
         }
 
-        private static void SimpleEmployeeQueries()
+        static void SimpleEmployeeQueries()
         {
             EmployeeRepository repository = new EmployeeRepository();
 
