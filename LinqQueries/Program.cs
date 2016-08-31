@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using EmployeeExtensionsGood;
 using System.Linq.Expressions;
 using System.Linq.Dynamic;
-
 namespace LinqQueries
 {
     class Program

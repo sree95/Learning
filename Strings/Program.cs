@@ -64,7 +64,9 @@ namespace Strings
 
             //SplitingTheStringBasedonNumber();
 
-            VowelCountFromAString();
+            //VowelCountFromAString();
+
+            CountingTheRepetingCharectersInAWord();
 
 
         }
