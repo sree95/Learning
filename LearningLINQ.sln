@@ -92,6 +92,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonRepository.Interface"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.Basic", "C:\Users\sparimi\Downloads\csharp-interfaces\5-csharp-interfaces-m5-dynamic-exercise-files\before\DynamicLoading\PeopleViewer.Basic\PeopleViewer.Basic.csproj", "{7DA7BD58-8197-4E99-ACDE-51A0D4A47965}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.Layered", "C:\Users\sparimi\Downloads\csharp-interfaces\5-csharp-interfaces-m5-dynamic-exercise-files\before\DynamicLoading\PeopleViewer.Layered\PeopleViewer.Layered.csproj", "{D85FBE12-9358-47A4-89D1-3A291FF371D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{1C3A0E0A-3C0C-4D09-B578-58972FE1B0D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonRepository.Fake", "PersonRepository.Fake\PersonRepository.Fake.csproj", "{7A9C0161-E59D-462B-A1B5-675E25030F8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.Test", "PeopleViewer.Test\PeopleViewer.Test.csproj", "{439C11E1-AF6C-4363-BFB1-3C0ABFEEF01A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -214,6 +222,18 @@ Global
 		{7DA7BD58-8197-4E99-ACDE-51A0D4A47965}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DA7BD58-8197-4E99-ACDE-51A0D4A47965}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DA7BD58-8197-4E99-ACDE-51A0D4A47965}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D85FBE12-9358-47A4-89D1-3A291FF371D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D85FBE12-9358-47A4-89D1-3A291FF371D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D85FBE12-9358-47A4-89D1-3A291FF371D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D85FBE12-9358-47A4-89D1-3A291FF371D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A9C0161-E59D-462B-A1B5-675E25030F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A9C0161-E59D-462B-A1B5-675E25030F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A9C0161-E59D-462B-A1B5-675E25030F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9C0161-E59D-462B-A1B5-675E25030F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{439C11E1-AF6C-4363-BFB1-3C0ABFEEF01A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{439C11E1-AF6C-4363-BFB1-3C0ABFEEF01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{439C11E1-AF6C-4363-BFB1-3C0ABFEEF01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{439C11E1-AF6C-4363-BFB1-3C0ABFEEF01A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -253,5 +273,9 @@ Global
 		{1106A809-72E0-472F-AC57-257C6989AA14} = {ED259DAB-58D2-4253-870C-B3CFE8F2CA49}
 		{07234EAC-B32F-4769-A4C5-83209A858829} = {62DA147B-2178-4463-89AB-5F7C39BC3779}
 		{7DA7BD58-8197-4E99-ACDE-51A0D4A47965} = {1FBE3BB6-C839-4CDC-80B7-45D08C57AFBC}
+		{D85FBE12-9358-47A4-89D1-3A291FF371D2} = {1FBE3BB6-C839-4CDC-80B7-45D08C57AFBC}
+		{1C3A0E0A-3C0C-4D09-B578-58972FE1B0D8} = {1FBE3BB6-C839-4CDC-80B7-45D08C57AFBC}
+		{7A9C0161-E59D-462B-A1B5-675E25030F8F} = {62DA147B-2178-4463-89AB-5F7C39BC3779}
+		{439C11E1-AF6C-4363-BFB1-3C0ABFEEF01A} = {1C3A0E0A-3C0C-4D09-B578-58972FE1B0D8}
 	EndGlobalSection
 EndGlobal
