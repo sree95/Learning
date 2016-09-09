@@ -28,18 +28,18 @@ namespace LearningLINQ
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
-    #region Extensibility Method Definitions
-    partial void OnCreated();
-    partial void InsertLog(Log instance);
-    partial void UpdateLog(Log instance);
-    partial void DeleteLog(Log instance);
-    partial void InsertMovie(Movie instance);
-    partial void UpdateMovie(Movie instance);
-    partial void DeleteMovie(Movie instance);
-    partial void InsertReview(Review instance);
-    partial void UpdateReview(Review instance);
-    partial void DeleteReview(Review instance);
-    #endregion
+	#region Extensibility Method Definitions
+	partial void OnCreated();
+	partial void InsertLog(Log instance);
+	partial void UpdateLog(Log instance);
+	partial void DeleteLog(Log instance);
+	partial void InsertMovie(Movie instance);
+	partial void UpdateMovie(Movie instance);
+	partial void DeleteMovie(Movie instance);
+	partial void InsertReview(Review instance);
+	partial void UpdateReview(Review instance);
+	partial void DeleteReview(Review instance);
+	#endregion
 		
 		public MovieReviewsDataContext() : 
 				base(global::LearningLINQ.Properties.Settings.Default.VSConnectionDBConnectionString, mappingSource)
@@ -108,17 +108,17 @@ namespace LearningLINQ
 		
 		private System.DateTime _Time;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnMessageChanging(string value);
-    partial void OnMessageChanged();
-    partial void OnTimeChanging(System.DateTime value);
-    partial void OnTimeChanged();
-    #endregion
+	#region Extensibility Method Definitions
+	partial void OnLoaded();
+	partial void OnValidate(System.Data.Linq.ChangeAction action);
+	partial void OnCreated();
+	partial void OnIDChanging(int value);
+	partial void OnIDChanged();
+	partial void OnMessageChanging(string value);
+	partial void OnMessageChanged();
+	partial void OnTimeChanging(System.DateTime value);
+	partial void OnTimeChanged();
+	#endregion
 		
 		public Log()
 		{
@@ -220,17 +220,17 @@ namespace LearningLINQ
 		
 		private EntitySet<Review> _Reviews;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnReleaseDateChanging(System.DateTime value);
-    partial void OnReleaseDateChanged();
-    #endregion
+	#region Extensibility Method Definitions
+	partial void OnLoaded();
+	partial void OnValidate(System.Data.Linq.ChangeAction action);
+	partial void OnCreated();
+	partial void OnIdChanging(int value);
+	partial void OnIdChanged();
+	partial void OnTitleChanging(string value);
+	partial void OnTitleChanged();
+	partial void OnReleaseDateChanging(System.DateTime value);
+	partial void OnReleaseDateChanged();
+	#endregion
 		
 		public Movie()
 		{
@@ -364,23 +364,23 @@ namespace LearningLINQ
 		
 		private EntityRef<Movie> _Movie;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnReviewIDChanging(int value);
-    partial void OnReviewIDChanged();
-    partial void OnMovieIdChanging(int value);
-    partial void OnMovieIdChanged();
-    partial void OnSummaryChanging(string value);
-    partial void OnSummaryChanged();
-    partial void OnRatingChanging(System.Nullable<int> value);
-    partial void OnRatingChanged();
-    partial void OnBodyChanging(string value);
-    partial void OnBodyChanged();
-    partial void OnReviewerChanging(string value);
-    partial void OnReviewerChanged();
-    #endregion
+	#region Extensibility Method Definitions
+	partial void OnLoaded();
+	partial void OnValidate(System.Data.Linq.ChangeAction action);
+	partial void OnCreated();
+	partial void OnReviewIDChanging(int value);
+	partial void OnReviewIDChanged();
+	partial void OnMovieIdChanging(int value);
+	partial void OnMovieIdChanged();
+	partial void OnSummaryChanging(string value);
+	partial void OnSummaryChanged();
+	partial void OnRatingChanging(System.Nullable<int> value);
+	partial void OnRatingChanged();
+	partial void OnBodyChanging(string value);
+	partial void OnBodyChanged();
+	partial void OnReviewerChanging(string value);
+	partial void OnReviewerChanged();
+	#endregion
 		
 		public Review()
 		{

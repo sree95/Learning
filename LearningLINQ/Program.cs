@@ -31,7 +31,7 @@ namespace LearningLINQ
 
             //QueryXml();
 
-            //QuerySql();
+            QuerySql();
 
             #endregion
 
@@ -101,7 +101,7 @@ namespace LearningLINQ
 
             //UseExpressions();
 
-            UsingImplicitConversionType();
+            //UsingImplicitConversionType();
         }
 
         private static void UsingImplicitConversionType()
@@ -221,14 +221,14 @@ namespace LearningLINQ
 
         }
 
-        private static void QuerySql()
+        static void QuerySql()
         {
             MovieReviewsDataContext context = new MovieReviewsDataContext();
 
             IEnumerable<Movie> movies = from dc in context.Movies
-                where dc.ReleaseDate.Year >= 2008
-                orderby dc.Reviews.Average(x => x.Rating) descending
-                select dc;
+                                        where dc.ReleaseDate.Year >= 2008
+                                        orderby dc.Reviews.Average(x => x.Rating) descending
+                                        select dc;
 
             foreach (Movie m in movies)
             {
