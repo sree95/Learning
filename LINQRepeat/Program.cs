@@ -24,8 +24,10 @@ namespace LINQRepeat
 
             //Expressions();
 
-            PartialClass cls = new PartialClass();
-            cls.Created();
+            //PartialClass cls = new PartialClass();
+            //cls.Created();
+
+            DelegateExp();
 
         }
 
@@ -103,7 +105,14 @@ namespace LINQRepeat
 
         public static void DelegateExp()
         {
-            Array.Find(empArray, e => e.Id == 102);
+            //Array.Find(empArray, e => e.Id == 102);
+
+            var strings = new List<string>() { "Hello", "Bye" };
+            strings.Select(x => { Console.WriteLine(x);
+                return x.ToUpper(); });
+
+            //strings.Select(x => Console.Write());
+
         }
 
     }

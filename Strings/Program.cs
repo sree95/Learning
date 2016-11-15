@@ -10,8 +10,6 @@ namespace Strings
 {
     class Program
     {
-
-
         const int xCon = 10;
 
         readonly int rOnly;
@@ -66,7 +64,92 @@ namespace Strings
 
             //VowelCountFromAString();
 
-            CountingTheRepetingCharectersInAWord();
+            //CountingTheRepetingCharectersInAWord();
+
+            //FindingMaxLengthInStringArray();
+
+            AlphabetPicking();
+
+
+        }
+
+        static void AlphabetPicking()
+        {
+            string strInput = "19#113#114#20#81";
+            //string strInput = "23#45678";
+
+            StringBuilder sb = new StringBuilder();
+
+            string strSupport = "abcdefghijklmnopqrstuvwxyz";
+
+            if (!strInput.Contains('#'))
+            {
+                for (int i = 0; i < strInput.Length; i++)
+                {
+                    sb.Append(strSupport.ElementAt(int.Parse(strInput[i].ToString()) - 1));
+                }
+            }
+            else
+            {
+                var strArray = strInput.Split('#');
+
+                for (int i = 0; i < strArray.Length; i++)
+                {
+                    if (strArray[i].StartsWith("1", StringComparison.Ordinal) || strArray[i].StartsWith("2", StringComparison.Ordinal))
+                    {
+                        if (strArray[i].Length == 2)
+                        {
+                            sb.Append(strSupport.ElementAt(int.Parse(strArray[i].ToString()) - 1));
+                        }
+                        else if (strArray[i].Length > 2)
+                        {
+                            string subString = strArray[i];
+                            int len = subString.Length;
+
+                            for (int j = 0; j < len - 2; j++)
+                            {
+                                sb.Append(strSupport.ElementAt(int.Parse(subString[j].ToString()) - 1));
+                            }
+                            string subsub = subString.Substring(len - 2, 2);
+
+                            sb.Append(strSupport.ElementAt(int.Parse(subsub) - 1));
+                        }
+                    }
+                    else
+                    {
+                        for (int k = 0; k < strArray[i].Length; k++)
+                        {
+                            string strdup = strArray[i];
+                            sb.Append(strSupport.ElementAt(int.Parse(strdup[k].ToString()) - 1));
+                        }
+                    }
+
+                }
+            }
+            Console.WriteLine(sb.ToString());
+        }
+
+        private static void FindingMaxLengthInStringArray()
+        {
+            string[] input = { "Ravi", "Suresh", "Sreenivas", "BhanuPrasad" };
+
+            var output = input.OrderByDescending(x => x.Count()).Select(x => new
+            {
+                StringName = x,
+                StringLenght = x.Count()
+            }).FirstOrDefault();
+
+            //input.MaxBy(x => x.Length);
+
+            Console.WriteLine(output.StringName + "And its length " + output.StringLenght);
+
+
+            //var output = input.OrderByDescending(x => x.Count()).Select(x => x);
+
+            //foreach (var item in output)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
 
         }
@@ -167,9 +250,7 @@ namespace Strings
 
 
         }
-
-        
-
+       
         private static void CountingTheRepetingWords()
         {
             string str = "Hi in this word there are so so many word and word literals";

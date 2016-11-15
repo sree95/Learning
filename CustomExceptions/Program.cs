@@ -6,7 +6,9 @@ namespace CustomExceptions
     {
         static void Main(string[] args)
         {
-            throw new MyCustomException("My Messgae");
+            //throw new MyCustomException("My Messgae");
+
+            PrinitingFinally();
         }
 
 
@@ -20,6 +22,26 @@ namespace CustomExceptions
             {
 
                 throw;
+            }
+        }
+
+
+        public static void PrinitingFinally()
+        {
+            try
+            {
+                string abc = null;
+                abc.Split(' ');
+
+            }
+            //catch(ArgumentException e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+
+            finally
+            {
+                Console.WriteLine("finally");
             }
         }
     }
